@@ -149,8 +149,16 @@ def alphabeta_max_node(board, color, beta, level, limit):
 
   return alpha
 
-def heuristic_evaluation(board, color): #edit this later
+def heuristic_evaluation(board, color):
+
   p1, p2 = get_score(board)
+
+  #Checking the corners and assigning a higher value to them
+  if board[0][0] == 2 or board[0][7] == 2 or board[7][0] == 2 or board[7][7] == 2:
+    p1 += 5
+  elif board[0][0] == 1 or board[0][7] == 1 or board[7][0] == 1 or board[7][7] == 1:
+    p2 += 5
+
   return p1 - p2
 
 
